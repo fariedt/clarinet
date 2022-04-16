@@ -1434,6 +1434,7 @@ fn mine_block(state: &mut OpState, args: Value, _: ()) -> Result<String, AnyErro
                             None,
                             true,
                             Some(name.into()),
+                            false,
                         )
                         .unwrap(); // TODO(lgalabru)
                     let result = match execution.result {
@@ -1447,7 +1448,7 @@ fn mine_block(state: &mut OpState, args: Value, _: ()) -> Result<String, AnyErro
                         args.amount, args.recipient
                     );
                     let execution = session
-                        .interpret(snippet, None, None, true, Some(name.into()))
+                        .interpret(snippet, None, None, true, Some(name.into()), false)
                         .unwrap(); // TODO(lgalabru)
                     let result = match execution.result {
                         Some(output) => format!("{}", output),

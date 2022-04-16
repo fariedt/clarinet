@@ -48,6 +48,7 @@ pub fn run_dap() -> Result<(), String> {
                 Some(vec![Box::new(dap)]),
                 false,
                 None,
+                false,
             ) {
                 Ok(result) => Ok(()),
                 Err(diagnostics) => Err("unable to interpret expression".to_string()),
